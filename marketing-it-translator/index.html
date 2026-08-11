@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing ↔ IT Corporate Rosetta Stone | Multi-Level Sarcasm Translator</title>
+  <meta name="description" content="The ultimate bidirectional corporate translator with adjustable sarcasm levels.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-grid"></div>
+  <div class="ambient-glow cyan-glow"></div>
+  <div class="ambient-glow magenta-glow"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="badge">
+        <span class="badge-dot"></span> Protocol v5.0 • Multi-Tier Sarcasm Engine Enabled
+      </div>
+      <h1 class="title">
+        <span class="mkt-gradient">Marketing</span>
+        <span class="arrows">⇄</span>
+        <span class="it-gradient">IT</span> Translator
+      </h1>
+      <p class="subtitle">
+        Bridging the existential void between <em>"High-Level Visionary Flywheels"</em> and <em>"Core Memory Allocation Faults"</em>.
+      </p>
+    </header>
+
+    <!-- Intro Banner (Half-Marketing / Half-IT) -->
+    <section class="intro-card">
+      <div class="intro-badge">WHY THIS INTERFACE IS CRITICAL FOR ENTERPRISE SYNERGY</div>
+      <p class="intro-text">
+        In today's omnichannel digital landscape, cross-functional stakeholder alignment is frequently bottlenecked by catastrophic protocol mismatch between high-throughput marketing visionaries and low-latency systems engineers. When marketing demands an <strong>“agile, viral growth-hacking micro-experience by tomorrow’s standup,”</strong> IT interprets this as <strong>“unauthenticated root-level code injection with fatal tech debt amplification.”</strong> Conversely, when IT reports <strong>“500 Internal Server Errors and unhandled race conditions,”</strong> Marketing must spin this into <strong>“an artisanal user-friction reduction window to optimize customer mindfulness.”</strong>
+        Without this bidirectional translation layer, enterprise ROI will experience <code>404: Alignment Not Found</code>.
+      </p>
+    </section>
+
+    <!-- Sarcasm Level Slider Control Bar -->
+    <section class="sarcasm-control-card">
+      <div class="sarcasm-header">
+        <span class="sarcasm-title">🔥 Sarcasm Level Regulator:</span>
+        <span id="sarcasm-level-text" class="sarcasm-badge-display">Level 3: Unfiltered Cynicism 🔥</span>
+      </div>
+      <div class="slider-wrapper">
+        <span class="slider-label">😇 Sincere</span>
+        <input type="range" id="sarcasm-slider" min="1" max="3" step="1" value="3" oninput="setSarcasmLevel(this.value)">
+        <span class="slider-label">🔥 Maximum Sarcasm</span>
+      </div>
+    </section>
+
+    <!-- Direction Selector Controls -->
+    <div class="mode-selector">
+      <button id="btn-mkt-to-it" class="mode-btn active" onclick="switchMode('mkt-to-it')">
+        <span class="icon">📢 ➔ 💻</span>
+        <span class="text">Marketing Speak ➔ IT Reality</span>
+      </button>
+      
+      <button id="btn-swap" class="swap-btn" onclick="switchMode(currentMode === 'mkt-to-it' ? 'it-to-mkt' : 'mkt-to-it')" title="Swap Translation Direction">
+        🔄 Swap Direction
+      </button>
+
+      <button id="btn-it-to-mkt" class="mode-btn" onclick="switchMode('it-to-mkt')">
+        <span class="icon">💻 ➔ 📢</span>
+        <span class="text">IT Reality ➔ Marketing Spin</span>
+      </button>
+    </div>
+
+    <!-- Translator Main Card -->
+    <div class="translator-grid">
+      <!-- Input Panel -->
+      <div class="panel input-panel">
+        <div class="panel-header">
+          <span class="panel-title" id="input-label">📢 Source: Marketing Speak</span>
+          <button class="action-btn" onclick="clearInput()">Clear</button>
+        </div>
+        <textarea id="source-input" placeholder="Type Marketing Speak here... (e.g. 'Can we just make it pop and add AI by Friday?')" oninput="handleTranslate()"></textarea>
+        <div class="panel-footer">
+          <span id="input-char-count">0 chars</span>
+          <button class="sample-btn" onclick="loadRandomSample()">🎲 Random Sample</button>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="panel output-panel">
+        <div class="panel-header">
+          <span class="panel-title" id="output-label">💻 Translation: IT Reality</span>
+          <button class="action-btn copy-btn" onclick="copyOutput()" id="copy-btn">📋 Copy Result</button>
+        </div>
+        <div id="translation-output" class="output-content">
+          <span class="placeholder-text">Your translated output will render here in real time...</span>
+        </div>
+        <div class="panel-footer">
+          <span class="status-indicator">⚡ Translation Engine Active</span>
+          <span id="cynicism-rating" class="cynicism-badge">Level 3: Unfiltered Cynicism 🔥</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dry Humor Commentary Box -->
+    <div class="commentary-box" id="commentary-box">
+      <div class="commentary-header">
+        <span class="commentary-icon">🤖</span>
+        <span class="commentary-title">Translator Commentary:</span>
+      </div>
+      <p id="commentary-text" class="commentary-text">
+        Ready for input. Please feed me buzzwords or technical jargon so I can process your team's collective denial.
+      </p>
+    </div>
+
+    <!-- Quick Phrase Preset Chips -->
+    <section class="presets-section">
+      <h3>⚡ Instant Jargon Presets (Click to Translate)</h3>
+      <div class="preset-chips" id="preset-chips">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Interactive Dictionary -->
+    <section class="dictionary-section">
+      <div class="dictionary-header">
+        <h2>📖 Cross-Silo Rosetta Dictionary</h2>
+        <input type="text" id="dict-search" placeholder="Search dictionary terms... (e.g. Bandwidth, Technical Debt, Bug)" oninput="filterDictionary()">
+      </div>
+      <div class="dictionary-grid" id="dictionary-grid">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Built with ⚡ HTML/CSS/JS for cross-silo peace treaties • Powered by Sarcasm & Technical Debt</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
