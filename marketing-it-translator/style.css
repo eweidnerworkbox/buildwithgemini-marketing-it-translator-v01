@@ -604,6 +604,76 @@ textarea:focus {
   font-family: var(--font-mono);
 }
 
+.dict-source {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--it-cyan);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.dict-source:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.dictionary-note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: -0.5rem;
+}
+
+/* Sources / Bibliography */
+.sources-section {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sources-section h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.sources-intro {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.sources-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.sources-list strong {
+  color: var(--text-main);
+  margin-right: 0.35rem;
+}
+
+.sources-list a {
+  color: var(--mkt-pink);
+  text-decoration: none;
+  margin-right: 0.1rem;
+}
+
+.sources-list a:hover {
+  text-decoration: underline;
+  color: var(--it-cyan);
+}
+
 /* Footer */
 .footer {
   text-align: center;

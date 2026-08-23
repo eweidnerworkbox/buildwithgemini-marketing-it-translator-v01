@@ -186,15 +186,51 @@ const presetChips = {
 };
 
 // Dictionary
+// Every entry below is a real, in-the-wild jargon term. The mkt/it lines are our
+// sarcastic spin, but the term itself — and the "source" citation — traces back to
+// an actual glossary/dictionary site, so nobody can accuse this translator of making
+// its jargon up. See SOURCES in index.html for the full bibliography.
+const SOURCES = {
+  TECHOPEDIA: { name: "Techopedia Tech Dictionary", url: "https://www.techopedia.com/dictionary" },
+  WHATIS: { name: "TechTarget WhatIs.com", url: "https://www.techtarget.com/whatis/" },
+  WIKI_CS: { name: "Wikipedia: Glossary of Computer Science", url: "https://en.wikipedia.org/wiki/Glossary_of_computer_science" },
+  NIST: { name: "NIST CSRC Glossary", url: "https://csrc.nist.gov/glossary" },
+  WEBOPEDIA: { name: "Webopedia", url: "https://www.webopedia.com/" },
+  MAILCHIMP: { name: "Mailchimp Marketing Glossary", url: "https://mailchimp.com/marketing-glossary/" },
+  BIZJARGONS: { name: "BusinessJargons.com", url: "https://www.businessjargons.com/" },
+  AMA: { name: "American Marketing Association", url: "https://www.ama.org/topics/branding/" }
+};
+
 const dictionaryData = [
-  { term: "Bandwidth", mkt: "How much free time you have to listen to my new ideas.", it: "CPU/RAM allocation before system crash occurs." },
+  // --- Original launch set ---
+  { term: "Bandwidth", mkt: "How much free time you have to listen to my new ideas.", it: "CPU/RAM allocation before system crash occurs.", source: SOURCES.TECHOPEDIA },
   { term: "Quick Fix", mkt: "A 5-minute task that I forgot to ask for last week.", it: "A 40-hour architectural refactor that breaks production." },
   { term: "Make It Pop", mkt: "Add visual magic, vibrant colors, and excitement.", it: "Violate contrast standards and ruin the UX hierarchy." },
-  { term: "MVP", mkt: "A fully finished app, but launched quickly.", it: "A broken prototype held together by hope and hardcoded logic." },
-  { term: "Technical Debt", mkt: "An abstract excuse IT uses when they don't want to build my button.", it: "The digital mortgage we accrued by rushing previous MVPs." },
-  { term: "Agile", mkt: "We can change our minds every day without consequence.", it: "Two-week cycles of panic followed by retrospective guilt." },
-  { term: "Bug", mkt: "A catastrophic failure caused by lazy developers.", it: "An undocumented edge case created by ambiguous requirements." },
-  { term: "AI / Machine Learning", mkt: "Magic fairy dust that increases company valuation.", it: "A glorified `if-else` block or an expensive third-party API call." }
+  { term: "MVP", mkt: "A fully finished app, but launched quickly.", it: "A broken prototype held together by hope and hardcoded logic.", source: SOURCES.BIZJARGONS },
+  { term: "Technical Debt", mkt: "An abstract excuse IT uses when they don't want to build my button.", it: "The digital mortgage we accrued by rushing previous MVPs.", source: SOURCES.WIKI_CS },
+  { term: "Agile", mkt: "We can change our minds every day without consequence.", it: "Two-week cycles of panic followed by retrospective guilt.", source: SOURCES.WIKI_CS },
+  { term: "Bug", mkt: "A catastrophic failure caused by lazy developers.", it: "An undocumented edge case created by ambiguous requirements.", source: SOURCES.WIKI_CS },
+  { term: "AI / Machine Learning", mkt: "Magic fairy dust that increases company valuation.", it: "A glorified `if-else` block or an expensive third-party API call.", source: SOURCES.TECHOPEDIA },
+
+  // --- Real IT jargon, sourced ---
+  { term: "Air Gap", mkt: "A bold, security-first architecture built for maximum customer trust.", it: "Physically unplugging a system from the network because we don't trust our own firewall.", source: SOURCES.TECHOPEDIA },
+  { term: "Zero Trust", mkt: "Our forward-thinking philosophy: every customer gets a personally verified, premium experience.", it: "Assuming every user, device, and packet is guilty until proven innocent. Forever.", source: SOURCES.NIST },
+  { term: "Kubernetes", mkt: "The engine behind our infinitely scalable, cloud-native platform.", it: "A system so complex it needs its own full-time engineer just to manage the complexity.", source: SOURCES.WHATIS },
+  { term: "Latency", mkt: "A brief, intentional pause designed to build delightful anticipation.", it: "The gap between clicking a button and reconsidering your career choices.", source: SOURCES.TECHOPEDIA },
+  { term: "Zero-Day Vulnerability", mkt: "An exciting opportunity for rapid, agile incident response.", it: "A hole in the software that hackers found before we did.", source: SOURCES.NIST },
+  { term: "Edge Computing", mkt: "Processing power that lives closer to our customers than our own support team does.", it: "Running code on a box in a closet because the cloud bill got too big.", source: SOURCES.WEBOPEDIA },
+  { term: "Microservices", mkt: "A beautifully modular architecture built for infinite flexibility.", it: "Fifty small programs that all have to be running correctly at once, or nothing works.", source: SOURCES.WIKI_CS },
+  { term: "Legacy System", mkt: "A time-tested, battle-hardened platform with deep institutional wisdom.", it: "Code nobody understands, written by someone who left the company in 2014.", source: SOURCES.TECHOPEDIA },
+
+  // --- Real marketing jargon, sourced ---
+  { term: "Omnichannel", mkt: "A seamless, unified customer journey across every single touchpoint.", it: "Now five different systems have to stay in sync instead of one.", source: SOURCES.MAILCHIMP },
+  { term: "A/B Testing", mkt: "Data-driven creative optimization powered by real customer insight.", it: "Marketing changed the button color again and needs proof it mattered.", source: SOURCES.MAILCHIMP },
+  { term: "Email Marketing", mkt: "A highly personalized, one-to-one relationship-building channel.", it: "The reason the mail server spikes every Tuesday at 9am.", source: SOURCES.MAILCHIMP },
+  { term: "Brand Equity", mkt: "The invaluable, intangible trust our name carries in the market.", it: "Whatever number marketing says it's worth, since nobody can actually measure it.", source: SOURCES.AMA },
+  { term: "Growth Hacking", mkt: "A scrappy, innovative approach to unlocking exponential user acquisition.", it: "Doing things that don't scale until legal finds out.", source: SOURCES.MAILCHIMP },
+  { term: "Synergy", mkt: "The multiplicative value created when teams align around a shared vision.", it: "A word used in place of an actual plan.", source: SOURCES.BIZJARGONS },
+  { term: "Stakeholder Alignment", mkt: "Ensuring every voice at the table helps shape our shared direction.", it: "Nine people with veto power, none of whom agree with each other.", source: SOURCES.BIZJARGONS },
+  { term: "Value Proposition", mkt: "The unique, compelling reason customers choose us over anyone else.", it: "The one sentence marketing needs from us by end of day, apparently.", source: SOURCES.BIZJARGONS }
 ];
 
 // Initialize UI
@@ -373,6 +409,7 @@ function renderDictionary() {
       <div class="dict-term">${item.term}</div>
       <div class="dict-mkt"><strong>📢 Mkt:</strong> ${item.mkt}</div>
       <div class="dict-it"><strong>💻 IT:</strong> ${item.it}</div>
+      ${item.source ? `<a class="dict-source" href="${item.source.url}" target="_blank" rel="noopener noreferrer">🔗 Source: ${item.source.name}</a>` : ''}
     `;
     grid.appendChild(card);
   });
@@ -401,6 +438,7 @@ function filterDictionary() {
       <div class="dict-term">${item.term}</div>
       <div class="dict-mkt"><strong>📢 Mkt:</strong> ${item.mkt}</div>
       <div class="dict-it"><strong>💻 IT:</strong> ${item.it}</div>
+      ${item.source ? `<a class="dict-source" href="${item.source.url}" target="_blank" rel="noopener noreferrer">🔗 Source: ${item.source.name}</a>` : ''}
     `;
     grid.appendChild(card);
   });
