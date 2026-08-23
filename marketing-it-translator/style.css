@@ -122,12 +122,17 @@ body {
 }
 
 .mkt-gradient {
+  /* Solid fallback so the title stays visible (not literally invisible) in
+     forced-colors/high-contrast modes and any browser that ignores the
+     webkit-prefixed clip-text properties below. */
+  color: var(--mkt-pink);
   background: linear-gradient(135deg, var(--mkt-pink), var(--mkt-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .it-gradient {
+  color: var(--it-cyan);
   background: linear-gradient(135deg, var(--it-cyan), var(--it-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -227,8 +232,11 @@ body {
   font-weight: 600;
   padding: 0.25rem 0.75rem;
   border-radius: 6px;
+  /* Matches the JS default (Level 3) values in app.js so there's no mismatch
+     before/after updateSarcasmUI() runs. #ec4899 text measured 4.38:1 here,
+     just under WCAG AA's 4.5:1 minimum for normal-size text; #f472b6 clears it. */
   background: rgba(236, 72, 153, 0.15);
-  color: var(--mkt-pink);
+  color: #f472b6;
 }
 
 .slider-wrapper {

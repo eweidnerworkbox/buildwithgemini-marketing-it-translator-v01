@@ -286,8 +286,11 @@ function updateSarcasmUI() {
   if (sliderEl) sliderEl.value = sarcasmLevel;
 
   let text = "Level 3: Unfiltered Cynicism 🔥";
-  let badgeColor = "rgba(236, 72, 153, 0.2)";
-  let textColor = "#ec4899";
+  // Lightened from #ec4899/0.2 alpha: the darker pink-on-pink combo measured
+  // 4.09:1 / 4.38:1 against its badge backgrounds, just under the 4.5:1 WCAG AA
+  // minimum for normal-size text. #f472b6 at 0.15 alpha measures ~6:1.
+  let badgeColor = "rgba(236, 72, 153, 0.15)";
+  let textColor = "#f472b6";
 
   if (sarcasmLevel === 1) {
     text = "Level 1: Professional / Sincere 😇";
