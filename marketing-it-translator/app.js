@@ -256,15 +256,18 @@ function switchMode(mode) {
   const inputLabel = document.getElementById('input-label');
   const outputLabel = document.getElementById('output-label');
   const sourceInput = document.getElementById('source-input');
+  const sourceInputLabel = document.getElementById('source-input-label');
 
   if (mode === 'mkt-to-it') {
     if (inputLabel) inputLabel.textContent = '📢 Source: Marketing Speak';
     if (outputLabel) outputLabel.textContent = '💻 Translation: IT Reality';
     if (sourceInput) sourceInput.placeholder = "Type Marketing Speak here... (e.g. 'Can we just make it pop and add AI by Friday?')";
+    if (sourceInputLabel) sourceInputLabel.textContent = 'Marketing Speak to translate';
   } else {
     if (inputLabel) inputLabel.textContent = '💻 Source: IT Reality';
     if (outputLabel) outputLabel.textContent = '📢 Translation: Marketing Spin';
     if (sourceInput) sourceInput.placeholder = "Type IT Speak here... (e.g. 'The server crashed due to 500 internal errors and technical debt.')";
+    if (sourceInputLabel) sourceInputLabel.textContent = 'IT Reality to translate';
   }
 
   clearInput();
@@ -300,6 +303,13 @@ function updateSarcasmUI() {
     text = "Level 2: Mild Snark 😼";
     badgeColor = "rgba(6, 182, 212, 0.2)";
     textColor = "#22d3ee";
+  }
+
+  // Keep the slider's accessible name/value in sync so screen reader users
+  // hear the same level text sighted users see, instead of just a bare number.
+  if (sliderEl) {
+    sliderEl.setAttribute('aria-valuenow', String(sarcasmLevel));
+    sliderEl.setAttribute('aria-valuetext', text.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').trim());
   }
 
   if (ratingEl) {

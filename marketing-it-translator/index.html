@@ -31,6 +31,7 @@
       </p>
     </header>
 
+    <main>
     <!-- Intro Banner (Half-Marketing / Half-IT) -->
     <section class="intro-card">
       <div class="intro-badge">WHY THIS INTERFACE IS CRITICAL FOR ENTERPRISE SYNERGY</div>
@@ -43,13 +44,16 @@
     <!-- Sarcasm Level Slider Control Bar -->
     <section class="sarcasm-control-card">
       <div class="sarcasm-header">
-        <span class="sarcasm-title">🔥 Sarcasm Level Regulator:</span>
-        <span id="sarcasm-level-text" class="sarcasm-badge-display">Level 3: Unfiltered Cynicism 🔥</span>
+        <label for="sarcasm-slider" class="sarcasm-title">🔥 Sarcasm Level Regulator:</label>
+        <span id="sarcasm-level-text" class="sarcasm-badge-display" aria-hidden="true">Level 3: Unfiltered Cynicism 🔥</span>
       </div>
       <div class="slider-wrapper">
-        <span class="slider-label">😇 Sincere</span>
-        <input type="range" id="sarcasm-slider" min="1" max="3" step="1" value="3" oninput="setSarcasmLevel(this.value)">
-        <span class="slider-label">🔥 Maximum Sarcasm</span>
+        <span class="slider-label" aria-hidden="true">😇 Sincere</span>
+        <input type="range" id="sarcasm-slider" min="1" max="3" step="1" value="3"
+               aria-valuemin="1" aria-valuemax="3" aria-valuenow="3"
+               aria-valuetext="Level 3: Unfiltered Cynicism"
+               oninput="setSarcasmLevel(this.value)">
+        <span class="slider-label" aria-hidden="true">🔥 Maximum Sarcasm</span>
       </div>
     </section>
 
@@ -78,6 +82,7 @@
           <span class="panel-title" id="input-label">📢 Source: Marketing Speak</span>
           <button class="action-btn" onclick="clearInput()">Clear</button>
         </div>
+        <label for="source-input" class="sr-only" id="source-input-label">Marketing Speak to translate</label>
         <textarea id="source-input" placeholder="Type Marketing Speak here... (e.g. 'Can we just make it pop and add AI by Friday?')" oninput="handleTranslate()"></textarea>
         <div class="panel-footer">
           <span id="input-char-count">0 chars</span>
@@ -89,9 +94,9 @@
       <div class="panel output-panel">
         <div class="panel-header">
           <span class="panel-title" id="output-label">💻 Translation: IT Reality</span>
-          <button class="action-btn copy-btn" onclick="copyOutput()" id="copy-btn">📋 Copy Result</button>
+          <button class="action-btn copy-btn" onclick="copyOutput()" id="copy-btn" aria-live="polite">📋 Copy Result</button>
         </div>
-        <div id="translation-output" class="output-content">
+        <div id="translation-output" class="output-content" role="status" aria-live="polite">
           <span class="placeholder-text">Your translated output will render here in real time...</span>
         </div>
         <div class="panel-footer">
@@ -107,14 +112,14 @@
         <span class="commentary-icon">🤖</span>
         <span class="commentary-title">Translator Commentary:</span>
       </div>
-      <p id="commentary-text" class="commentary-text">
+      <p id="commentary-text" class="commentary-text" role="status" aria-live="polite">
         Ready for input. Please feed me buzzwords or technical jargon so I can process your team's collective denial.
       </p>
     </div>
 
     <!-- Quick Phrase Preset Chips -->
     <section class="presets-section">
-      <h3>⚡ Instant Jargon Presets (Click to Translate)</h3>
+      <h2>⚡ Instant Jargon Presets (Click to Translate)</h2>
       <div class="preset-chips" id="preset-chips">
         <!-- Injected via JS -->
       </div>
@@ -124,6 +129,7 @@
     <section class="dictionary-section">
       <div class="dictionary-header">
         <h2>📖 Cross-Silo Rosetta Dictionary</h2>
+        <label for="dict-search" class="sr-only">Search dictionary terms</label>
         <input type="text" id="dict-search" placeholder="Search dictionary terms... (e.g. Bandwidth, Technical Debt, Bug)" oninput="filterDictionary()">
       </div>
       <p class="dictionary-note">Every term here is real, in-the-wild jargon pulled from an actual IT or marketing glossary — click a card's 🔗 source link to see it in the wild. The spin is ours; the buzzwords are 100% authentic.</p>
@@ -134,7 +140,7 @@
 
     <!-- Sources / Bibliography -->
     <section class="sources-section">
-      <h3>🔗 Where the Jargon Comes From</h3>
+      <h2>🔗 Where the Jargon Comes From</h2>
       <p class="sources-intro">This translator's dictionary is grounded in real terminology from the following reference sites:</p>
       <ul class="sources-list">
         <li><strong>IT / Tech:</strong>
@@ -151,6 +157,7 @@
         </li>
       </ul>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
